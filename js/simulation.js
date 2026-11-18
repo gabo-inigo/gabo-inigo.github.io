@@ -1555,6 +1555,12 @@
 
   ui.resetSim.addEventListener("click", resetSimulation);
   window.addEventListener("resize", fitCanvas);
+  window.addEventListener("orientationchange", () => {
+    requestAnimationFrame(fitCanvas);
+  });
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener("resize", fitCanvas);
+  }
 
   initCracks();
   initPits();

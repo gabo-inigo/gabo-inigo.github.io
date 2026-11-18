@@ -595,3 +595,124 @@ input[type="range"] {
 .footer-meta {
   margin-top: 0.5rem;
 }
+
+/* --- Mobile & touch --- */
+body {
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+@media (max-width: 767px) {
+  main {
+    align-items: stretch;
+    justify-content: flex-start;
+    min-height: auto;
+    padding-top: max(0.75rem, env(safe-area-inset-top));
+    padding-bottom: max(1.25rem, env(safe-area-inset-bottom));
+    padding-left: max(0.75rem, env(safe-area-inset-left));
+    padding-right: max(0.75rem, env(safe-area-inset-right));
+  }
+
+  .simulation {
+    padding: 1rem;
+    border-radius: var(--radius);
+  }
+
+  .controls {
+    gap: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .chip-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.4rem;
+  }
+
+  .chip span {
+    padding: 0.65rem 0.5rem;
+    font-size: 0.82rem;
+    text-align: center;
+    min-height: 2.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .range-label {
+    flex-wrap: wrap;
+    gap: 0.15rem 0.5rem;
+    font-size: 0.85rem;
+    line-height: 1.35;
+  }
+
+  .transport {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  .transport .btn {
+    width: 100%;
+    min-height: 2.75rem;
+    padding: 0.65rem 1rem;
+  }
+
+  .stage-wrap {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hud {
+    position: static;
+    min-width: 0;
+    max-width: none;
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 0.8rem;
+  }
+
+  .hud-value--wrap {
+    max-width: none;
+    text-align: right;
+  }
+}
+
+@media (max-width: 380px) {
+  .chip-group {
+    grid-template-columns: 1fr;
+  }
+
+  .chip span {
+    min-height: 2.5rem;
+  }
+
+  .transport {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (pointer: coarse) {
+  .btn,
+  .chip span {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  input[type="range"] {
+    height: 1.75rem;
+    margin: 0.15rem 0;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
